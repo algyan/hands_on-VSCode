@@ -79,6 +79,72 @@ code .
 ├── tsconfig.json       // TypeScript設定ファイル
 ```
 
-## 5. ほかにも公開されている拡張機能サンプル
+## 5. 拡張機能のパッケージ化
+作成した拡張機能の配布や公開には、拡張機能をインストール可能な **VSIX形式** にパッケージ化する必要があります。
+1. vsceツールをインストールします。
+```
+npm install -g vsce
+```
+2. package.jsonファイルにpublisher: "パブリッシャー名"を記述し、ファイルを保存します。サンプルファイルは下記の通りです。6行目を追加しました。
+```
+{
+	"name": "helloworld",
+	"displayName": "HelloWorldDemo",
+	"description": "",
+	"version": "0.0.1",
+	"publisher": "ayatokura",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:extension.helloWorld"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.helloWorld",
+				"title": "Hello World"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.41.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"tslint": "^5.20.0",
+		"vscode-test": "^1.2.2"
+	}
+}
+```
+3. README.mdの内容を編集します。編集しないと後でエラーが出力されるため、3 行目を適当な文に上書きするか削除します。
+4. package.json が存在する同一ディレクトリで、下記のvsceコマンドを実行します。
+```
+vsce package
+```
+5. 同じフォルダにVSIXファイルが作成されていればOKです。
+
+## 6. VSIXファイルからの拡張機能のインストール
+1. `デバッグと実行`アイコンをクリックし、右上の・・・`その他の操作`をクリックします。
+2. `VSIXからのインストール`をクリックします。
+3. VSIXファイルを指定し、インストールします。
+4. 拡張機能を実行してみます。
+5. 拡張機能が実行されれば成功です。
+
+## 7. ほかにも公開されている拡張機能サンプル
 この拡張機能以外にもMicrosoftのGitHubリポジトリに様々なサンプルの拡張機能が公開されています。試してみましょう。
 https://github.com/microsoft/vscode-extension-samples
