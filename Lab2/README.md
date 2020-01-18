@@ -33,9 +33,9 @@
 ## 3. スニペット (Markdown)
 VS Codeではスニペット対応しています。
 下記を順番に入力して、スニペットによりコードが挿入されることを確認してみてください。
-* Insert bold text (太字)
-* Insert link (リンク)
-* Insert image (画像)
+* `bold`: Insert bold text (太字)
+* `link`: Insert link (リンク)
+* `image`: Insert image (画像)
 
 ## 4. 独自スニペットの作成
 ここではMarkdownで議事録を作成するためのスニペットを作成してみます。
