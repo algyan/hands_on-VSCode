@@ -8,6 +8,23 @@ git --version
 ```
 2. gitのバージョン情報が表示されない場合にはgitがインストールされていない可能性があります。
 3. [git 公式サイト](https://git-scm.com/)よりインストールします。
+4. gitを利用するために、下記のコマンドを実行してユーザー名とメールアドレスを登録します。
+* ユーザー名の登録
+```
+git config --global user.name “名前”
+```
+* 登録されたかユーザー名の確認方法
+```
+git config --global user.name
+```
+* メールアドレスの登録
+```
+git config --global user.email “メール・アドレス”
+```
+*登録したメールアドレスの確認方法
+```
+git config --global user.email
+```
 
 ## 2. git コマンドの操作
 1. Gitリポジトリを初期化します。**ソース管理**アイコンをクリックします。

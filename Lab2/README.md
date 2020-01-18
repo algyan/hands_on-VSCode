@@ -37,7 +37,65 @@ VS Codeではスニペット対応しています。
 * Insert link (リンク)
 * Insert image (画像)
 
-## 4. 拡張機能 (Markdown)
+## 4. 独自スニペットの作成
+ここではMarkdownで議事録を作成するためのスニペットを作成してみます。
+1. `[Code] →［基本機能］→［ユーザースニペット］`をクリックします。
+2. **Markdown.json** を選択します。
+3. ファイル内容がエディタに表示されます。内容を下記のように編集し、保存します。
+```
+{
+	"Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	},
+
+		"Meeting Minutes":{
+			"prefix": "meeting",
+				"body": [
+				  "# 会議名",
+				  "",
+				  "## 日時・場所・出席者",
+				  "",
+				  "日時: $CURRENT_YEAR 年 $CURRENT_MONTH_NAME $CURRENT_DATE 日   ",
+				  "場所: 会議室  ",
+				  "出席者:  ",
+				  "",
+				  "## アジェンダ",
+				  "",
+				  "1. xxx",
+				  "2. xxx",
+				  "3. xxx",
+				  "",
+				  "## 議事内容",
+				  "",
+				  "1. xxx",
+				  "2. xxx",
+				  "3. xxx",
+				  "",
+				  "## 決定事項",
+				  "",
+				  "* [決定事項 1]  ",
+				  "* [決定事項 2]  ",
+				  "* [TODO]   (担当:   、期日:MM/DD)"
+				],
+			"description": "meeting munutes"
+			}
+}
+```
+4. 設定ファイル(Settings.json)に下記を追加し、ファイルを保存します。これで
+```
+"[markdown]": {
+"editor.quickSuggestions": true
+}
+```
+5. Markdownファイル上で`meeting`と入力します。
+6. meetingのスニペットが表示され、それをクリックすると登録しておいた内容を即座に呼び出すことができます。自由にカスタマイズしてみましょう。
+
+## 5. 拡張機能 (Markdown)
 1. VS Codeの`Extension`アイコンをクリックします。
 2. ボックスに`Markdown`と入力します。
 3. Markdown向け拡張機能が表示されます。
