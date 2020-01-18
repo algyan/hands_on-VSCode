@@ -39,7 +39,7 @@ git config --global user.email
 7. ローカルリポジトリにコミット完了し、ソース管理アイコンの横に表示されていた数字が消えます。
 
 > **[Note]** 2020年1月18日現在のダウンロード数 Top5  
-> 拡張機能の[その他の操作]アイコンより表示を変更できます。Markdownのランキングを表示したい場合は `@sort:installs git` を入力して検索します。  
+> 拡張機能の[その他の操作]アイコンより表示を変更できます。gitのランキングを表示したい場合は `@sort:installs git` を入力して検索します。  
 >1位 [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)  
 >2位 [Git History](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory)  
 >3位 [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync)  
